@@ -1,0 +1,395 @@
+
+Did the learner find the correct 4 rows from the two tables?
+
+Did the learner find the correct 4 rows from the two tables? 
+
+Did the learner successfully use the view to return the two columns in their SELECT statement? 
+
+Did the learner successfully write the shell of the SQL statement?
+
+Did the learner successfully write the update statement inside the stored procedure definition?
+
+​​Did the learner successfully write the IF statement inside the stored procedure definition?
+
+Did the learner successfully create the stored procedure?
+
+Did the learner correctly add the ROLLBACK WORK statement?
+
+
+
+​​SELECT Public school. Name_Of_School, Census_data. communtiy_area_name, public schoolsaverage_stdeunt_attendance fro chicaog_public_schools as CP, left join census_data as den, on Chigaoc public schools. community_area, number=cen, communtiy_area_number where den.Hardshi_index=98;
+
+
+3 pts
+SQL query is correct; it uses a join and returns 4 rows. The SQL query should either use a left join like:
+FROM census_data a LEFT JOIN chicago_public_schools b
+ON a.community_area_number = b.community_area_number
+or a right join like:
+FROM chicago_public_schools  a RIGHT JOIN census_data b
+ON a.community_area_number = b.community_area_number
+
+
+
+SELECT Denesure_data. case_number, census_data. [rimarty_type, censuzs_data.location_description, census_data. community_are_name from Chiago_crime_data as cD left join census_data as CCEN on CD.community_are_number = en.community_area_number where cd.location_descritpion like ‘%school%’
+
+
+3 pts
+SQL query is correct; it uses a join and returns 12 rows. The SQL query should either use a left join like:
+
+FROM chicago_crime_data a LEFT JOIN census_data b 
+ON a.community_area_number = b.community_area_number 
+ 
+or a right join like:
+ 
+FROM census_data a RIGHT JOIN chicago_crime_data b 
+ON a.community_area_number = b.community_area_number
+
+
+CREATE VIEW SChol_DATA as select name_of_school as “school_name”, safety_icon as “safety_rating”, family_inveolement_icon AS “family rating”, environment_icon as “environemnt_rating”, insturction_icon as “instructin_rating”, leaders_icon as “leaders_rating”, teachers_icon as “teachers_rating” from Chicago_public_schools; select * from School_data creat or replace view cool_data as select name_of_scool s “School_na”, leaer-cion as “lades_rating” from chiacgo_public schools; select * from School_data
+
+2 pts
+SQL query correctly returns two columns, named SCHOOL_NAME and LEADERS_RATING from the view that they created.
+ 
+
+— #SET terminator @ create procedure updat_leaders_score( In in_Shool_ID integer, in in_leaders_score Integer) language sql modifies sql data begin end @
+ 
+2 pts
+SQL query is similar to the following:
+--#SET TERMINATOR @
+CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE (IN in_School_ID INTEGER, IN in_Leader_Score INTEGER)
+  LANGUAGE SQL
+  	BEGIN 
+
+	END@
+ 
+
+— SET TERMiNATOR A create or replace procedure update_leaders_score(in in_school)id INTEGER, IN in_leader_score INTEGER) language SQL modifies SQL data begin update chicago_public schools set leaders_score = in_leader_score where school_id = in_school_ID; END @
+ 
+2 pts
+SQL query is similar to the following:
+--#SET TERMINATOR @
+
+CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE (IN in_School_ID INTEGER, IN in_Leader_Score INTEGER)
+  LANGUAGE SQL
+  
+	BEGIN 
+	
+		UPDATE CHICAGO_PUBLIC_SCHOOLS
+		SET "Leaders_Score" = in_Leader_Score
+			WHERE "School_ID" = in_School_ID;
+			
+	END@
+—#SET TERMINATOR @ CREATE OR replace procedure update_leaders_score( in in_scool_id integer, in in_leaders_score integer) language sql modifies sql data being if in_leader_score > 80 AND in_leader_score < 99 THEn UPDATE chicago_public_schol set LEders_icon = ‘very strong’; else if in_leader_score > 40 and in_leader_score < 59 THEN update chiacgo_public_chools set leaders_icon=‘Average’; else if in_leader_score > 20 AND in_leader_score < 39 THEN UPDATE HICAGO_PUBLIC_SCHOOLS set leaders_con = ‘Weak’l else if in_leader_score>0 AND inleader_score < 19 THEn update CHIacgo_public_schools set leaders_icon = “very weal’; END IF; update chiacgo_public_schools set leaders leaderss-cire = in_leader score where school_id = in_school_id; end @
+
+2 pts
+SQL query is similar to the following:
+CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE (IN in_School_ID INTEGER, IN in_Leader_Score INTEGER)
+  LANGUAGE SQL
+  
+	BEGIN 
+
+		UPDATE CHICAGO_PUBLIC_SCHOOLS
+		SET "Leaders_Score" = in_Leader_Score
+			WHERE "School_ID" = in_School_ID;
+			
+		IF in_Leader_Score > 0 AND in_Leader_Score < 20 THEN
+	      	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Very Weak';
+	    ELSEIF in_Leader_Score < 40 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Weak';	
+	    ELSEIF in_Leader_Score < 60 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Average';
+	    ELSEIF in_Leader_Score < 80 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Strong';
+	    ELSEIF in_Leader_Score < 100 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Very Strong';
+	   	END IF;
+		
+	END@
+
+
+3 #4
+
+—@SET TERMINATOR @ CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCROE ( IN in_CHOOL_D integer, In in_LDEADER_SCORE INTEGER) langauge sql modifies sql data begin udapdate CHICGO_PUBLIC_SCHOOLS set LEAders_score=in_leader score where SCHOOL_ID=in_SChool_ID; IF in_leader-score> 80 AND in_leader_score <99 THEn UPDATE CHIACGO_PUBLIC_SCHOOLS SET leaders_icon - ‘Very strong’; ELEIF in_leader_Score >60 and in_leader_SCore <79 THEn uUPDATE CHICAGO_PUBLIC_SCHOOLS set leaders_cion=‘Strong”; ELSEIF in_Leader_Score > 40 and in_laeder_score < 59 then update chiacgo_public_schools set leaders_icon =‘AVERAE’; ELEIF in_leader_score > 20 and in_leader)score < 39 THEn update CHIACGO_{UBKIC_SCHOOLS set LEaders_on=‘Weak’; ELSEIF in_leader_score > - and in_leader_score < 19 THEn UPDATE Chiacgo_pubc_Scopls set leaders_ico=‘Very weak’; END IF; END @
+
+2 pts
+SQL query is correct as follows and the results pane states that the stored procedure was successfully created.
+CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE (IN in_School_ID INTEGER, IN in_Leader_Score INTEGER)
+  LANGUAGE SQL
+  
+	BEGIN 
+
+		UPDATE CHICAGO_PUBLIC_SCHOOLS
+		SET "Leaders_Score" = in_Leader_Score
+			WHERE "School_ID" = in_School_ID;
+			
+		IF in_Leader_Score > 0 AND in_Leader_Score < 20 THEN
+	      	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Very Weak';
+	    ELSEIF in_Leader_Score < 40 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Weak';	
+	    ELSEIF in_Leader_Score < 60 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Average';
+	    ELSEIF in_Leader_Score < 80 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Strong';
+	    ELSEIF in_Leader_Score < 100 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Very Strong';
+	   	END IF;
+		
+	END@
+
+
+4 #1
+
+ # SET TERMIANTOR @ CREATE OR ERPLACE PROCEdUr UDATE_LEADERS_SCORE( IN in_SCHOOL_ID integer, IN in lader_core INTeger) langauge sql modifies sql data being uodate CHIACGO_UBIC_SCHOOLS SET LEADERS_score=in_leaders_score where SCHOOL_ID = in_School_ID IF in_leader_Score> 80 and in_Leader)SCre < 99 THEn UPDATE CHIACGO_PBKIC SCHOLS set LEaders_ICon = ‘Very strong’; ELSEIF in_Leader score> 60 and in_leader_score < 79 then update CHIACGO_PUBLIC_SCHOOLS set leaders_icon=‘STRONg’l ELSE IF In-ledaer_Scre > 40 and in_leader_Score < 59 then update cHAICAGO_Publci_SCHOOLS set leaders_con=‘AVERAGE’: else if in_leader_Score > 0 and INledar_score < 19 then update chiacgo_public_Schools set Leaders-Icon=‘Very weak”l else rollback work; end if; END @
+
+2 pts
+Stored procedure definition now contains an ELSE clause and ROLLBACK WORK before the END IF statement.
+
+
+4 #2
+
+—# SET Terminator A Create or REPLAE PECODURE UPDAE_LEADER_SCORE ( in in_SCHOOL_ID INTeger, IN in_Leader_Score integer) LNGAGUES QL MODIFIES SQL DATA BEGIN update chiacgo_ubc_schools se t leaders_score =in_leader_score where school_ID =in_school_ID: IF in_Leader_Score > 8- and in_leader_core < 99 then update chiaago_public_chools set leaders_icon =‘Very strong”; ELSEIF in_leader_score  60 and in_Leader_Score < 79 then update chaicgo_public_schools set lerders_icon=‘strong”; Elseif in_leaer score> 40 and inllader_score < 59 then update chiacog_pbblic_schools set leader-icon=‘Average’; else if in_leader_Score > 20 and in-leader_score < 39 then update chiacgo_public_schoools set ledaers_icon =‘weal”’; else in_leaer_score > 0 and in_leader_score < 19> 0 athen update achiag_public)schools set leaders-con = ‘very ek’; else rollback work; End if; commit work;  end @
+
+2 pts
+Stored procedure definition now contains a COMMIT WORK statement after the END IF statement.
+
+
+#1
+SELECT CP.Name_Of_School, CEN.community_area_name, CP.average_student_attendance 
+from CHICAGO_PUBLIC_SCHOOLS AS CP 
+LEFT JOIN CENSUS_DATA as CEN 
+ON CP.community_area_number= CEN.community_area_number 
+WHERE CEN.Hardship_index=98;
+
+
+
+--Exercise 1 Question 2
+SELECT CD.case_number, CD.primary_type, CD.location_description, CD.community_name
+from CHICAGO_CRIME_DATA AS CD 
+LEFT JOIN CENSUS_DATA AS CEN 
+ON CD.community_area_number = CEN.community_area_number 
+WHERE CD.location_description like '%SCHOOL%';
+
+
+CREATE VIEW SCHOOL_DATA AS 
+select name_of_school AS “school_name”, safety_icon AS “safety_rating”,
+family_involvement_icon AS “family rating”, environment_icon AS “environment_rating”, 
+instruction_icon AS “instruction_rating”, leaders_icon AS “leaders_rating”, 
+teachers_icon AS “teachers_rating” 
+from CHICAGO_PUBLIC_SCHOOLS; 
+
+
+
+--Exercise 2 Question 1
+select * from SCHOOL_DATA;
+
+create or replace view SCHOOL_DATA AS 
+select name_of_school AS “School_name”, leaders_icon AS “leaders_rating” 
+from CHICAGO_PUBLIC_SCHOOLS; 
+select * from SCHOOL_DATA; 
+
+
+
+--Exercise 3 Question 1
+--#SET TERMINATOR @ 
+create or replace procedure update_leaders_score( 
+In in_School_ID integer, in in_leader_score Integer)
+ language sql 
+ modifies sql data 
+ 
+BEGIN
+ 	UPDATE CHICAGO_PUBLIC_SCHOOLS
+ 	SET leaders_score = in_leader_score
+ 	WHERE School_ID = in_school_ID;
+ 
+ END
+ @
+
+
+
+
+
+--Exercise 3 Question 2
+ --#SET TERMINATOR @ 
+
+CREATE OR replace procedure update_leaders_score(
+	IN in_school_id integer, in in_leader_score integer) 
+ 
+language sql 
+modifies sql data 
+ 
+BEGIN 
+
+	update chicago_public_schools 
+	set leaders_score = in_leader_score 
+	where school_id = in_school_ID;
+	
+END 
+@
+
+UPDATE chicago_public_schools 
+ 	set Leaders_icon = 'very strong';
+
+
+
+--Excerise 3 Question 3
+
+--#SET TERMINATOR @ 
+CREATE OR replace procedure update_leaders_score(
+ in in_school_id integer, in in_leader_score integer) 
+ 
+language sql 
+modifies sql data 
+ 
+ BEGIN 
+IF 	in_leader_score > 80 AND in_leader_score < 99 THEN 
+ 	UPDATE chicago_public_schools 
+ 	set Leaders_icon = 'very strong'; 
+ 	
+ 	ELSEIF in_leader_score > 60 AND in_leader_score < 79 THEN
+ 	UPDATE chicago_public_schools 
+ 	set Leaders_icon = 'strong';
+ 	
+ 	elseif in_leader_score > 40 and in_leader_score < 59 THEN 
+ 	update chicago_public_schools 
+ 	set leaders_icon='average'; 
+ 	
+ 	elseif in_leader_score > 20 AND in_leader_score < 39 THEN 
+ 	UPDATE CHICAGO_PUBLIC_SCHOOLS 
+ 	set leaders_icon = 'Weak';
+ 	
+ 	elseif in_leader_score> 0 AND in_leader_score < 19 THEN 
+ 	update chicago_public_schools 
+ 	set leaders_icon = 'very weak'; 
+ 	
+ 	END IF; 
+ 	
+ 	update chicago_public_schools
+ 	set leaders_score = in_leader_score 
+ 	where school_id = in_school_id; 
+ 	
+ 	end 
+ 	@
+
+
+
+—@SET TERMINATOR @ CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCROE ( IN in_CHOOL_D integer, In in_LDEADER_SCORE INTEGER) langauge sql modifies sql data begin udapdate CHICGO_PUBLIC_SCHOOLS set LEAders_score=in_leader score where SCHOOL_ID=in_SChool_ID; IF in_leader-score> 80 AND in_leader_score <99 THEn UPDATE CHIACGO_PUBLIC_SCHOOLS SET leaders_icon - ‘Very strong’; ELEIF in_leader_Score >60 and in_leader_SCore <79 THEn uUPDATE CHICAGO_PUBLIC_SCHOOLS set leaders_cion=‘Strong”; ELSEIF in_Leader_Score > 40 and in_laeder_score < 59 then update chiacgo_public_schools set leaders_icon =‘AVERAE’; ELEIF in_leader_score > 20 and in_leader)score < 39 THEn update CHIACGO_{UBKIC_SCHOOLS set LEaders_on=‘Weak’; ELSEIF in_leader_score > - and in_leader_score < 19 THEn UPDATE Chiacgo_pubc_Scopls set leaders_ico=‘Very weak’; END IF; END @
+
+
+Exercise  3 question 4
+
+CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE (IN in_School_ID INTEGER, IN in_Leader_Score INTEGER)
+  LANGUAGE SQL
+  
+	BEGIN 
+
+		UPDATE CHICAGO_PUBLIC_SCHOOLS
+		SET "Leaders_Score" = in_Leader_Score
+			WHERE "School_ID" = in_School_ID;
+			
+		IF in_Leader_Score > 0 AND in_Leader_Score < 20 THEN
+	      	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Very Weak';
+	    ELSEIF in_Leader_Score < 40 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Weak';	
+	    ELSEIF in_Leader_Score < 60 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Average';
+	    ELSEIF in_Leader_Score < 80 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Strong';
+	    ELSEIF in_Leader_Score < 100 THEN
+	       	UPDATE CHICAGO_PUBLIC_SCHOOLS
+				SET "Leaders_Icon" = 'Very Strong';
+	   	END IF;
+		
+	END@
+
+
+--Excerise 4 question 1
+--# SET TERMIANTOR @ 
+ CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE( 
+ IN in_SCHOOL_ID integer, IN in_leader_score Integer)
+ language sql 
+ modifies sql data 
+ 
+ BEGIN 
+ 
+ update CHICAGO_PUBLIC_SCHOOLS 
+ SET LEADERS_score=in_leader_score 
+ where SCHOOL_ID = in_School_ID;
+ 
+ IF in_leader_Score> 80 and in_Leader_Score < 99 THEN 
+ UPDATE CHICAGO_PUBLIC_SCHOOLS 
+ set Leaders_Icon = 'Very strong'; 
+ 
+ ELSEIF in_Leader_score> 60 and in_leader_score < 79 then 
+ update CHICAGO_PUBLIC_SCHOOLS 
+ set leaders_icon='strong';
+ 
+ ELSEIF In_leader_Score > 40 and in_leader_Score < 59 then 
+ update CHICAGO_Public_SCHOOLS 
+ set leaders_icon='AVERAGE';
+ 
+ elseif in_leader_Score > 20 and in_leader_score < 39 then 
+ update chicago_public_Schools 
+ set Leaders_Icon='Very weak';
+ 
+ elseif in_leader_Score > 0 and in_leader_score < 19 then 
+ update chicago_public_Schools 
+ set Leaders_Icon='Very weak';
+ 
+ else rollback work; 
+ end if; 
+ END 
+ @
+
+
+
+--Excerise 4 question 1
+--# SET TERMIANTOR @ 
+ CREATE OR REPLACE PROCEDURE UPDATE_LEADERS_SCORE( 
+ IN in_SCHOOL_ID integer, IN in_leader_score Integer)
+ language sql 
+ modifies sql data 
+ 
+ BEGIN 
+ 
+ update CHICAGO_PUBLIC_SCHOOLS 
+ SET LEADERS_score=in_leader_score 
+ where SCHOOL_ID = in_School_ID;
+ 
+ IF in_leader_Score> 80 and in_Leader_Score < 99 THEN 
+ UPDATE CHICAGO_PUBLIC_SCHOOLS 
+ set Leaders_Icon = 'Very strong'; 
+ 
+ ELSEIF in_Leader_score> 60 and in_leader_score < 79 then 
+ update CHICAGO_PUBLIC_SCHOOLS 
+ set leaders_icon='strong';
+ 
+ ELSEIF In_leader_Score > 40 and in_leader_Score < 59 then 
+ update CHICAGO_Public_SCHOOLS 
+ set leaders_icon='AVERAGE';
+ 
+ elseif in_leader_Score > 20 and in_leader_score < 39 then 
+ update chicago_public_Schools 
+ set Leaders_Icon='Very weak';
+ 
+ elseif in_leader_Score > 0 and in_leader_score < 19 then 
+ update chicago_public_Schools 
+ set Leaders_Icon='Very weak';
+ 
+ else rollback work; 
+ end if; 
+ END 
+ @
